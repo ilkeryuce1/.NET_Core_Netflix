@@ -11,6 +11,6 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int AccounKindtId { get; set; }
-        public int AccounName { get; set; }
+        public string AccounName { get; set; }
     }
 }
