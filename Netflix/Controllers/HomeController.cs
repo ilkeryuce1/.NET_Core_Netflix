@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Mvc;
 using Netflix.Models;
 using System.Diagnostics;
 
@@ -18,9 +19,16 @@ namespace Netflix.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Signin()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Signin(Account account)
+        {
+
+
+            return View(account);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
