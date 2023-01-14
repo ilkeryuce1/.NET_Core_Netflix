@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAceesLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstDB : Migration
+    public partial class mg1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
