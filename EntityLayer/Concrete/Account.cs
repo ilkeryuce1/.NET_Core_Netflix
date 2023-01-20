@@ -20,6 +20,7 @@ namespace EntityLayer.Concrete
         public int PhoneNumber { get; set; }
         public int PacketId { get; set; }
         public int AccountKindId { get; set; }
+        public bool? Isverified { get; set; }
 
         public AccountKind AccountKind { get; set; }
         public Packet Packet { get; set; }

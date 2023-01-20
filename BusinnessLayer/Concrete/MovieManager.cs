@@ -10,39 +10,36 @@ using System.Threading.Tasks;
 
 namespace BusinnessLayer.Concrete
 {
-    public class MovieManager : IMovieService
-    {
-        IMovieDal _movieDal;
+	public class MovieManager : IMovieService
+	{
+		IMovieDal _movieDal;
+
+		public MovieManager(IMovieDal movieDal)
+		{
+			_movieDal = movieDal;
+		}
+
+		public void Add(Movie t)
+		{
+			_movieDal.Insert(t);		}
+
+		public List<Movie> GetAllList()
+		{
+			return _movieDal.GetListAll();
+		}
+
+		public Movie GetById(int id)
+		{
+			return _movieDal.GetByID(id);		}
+
+		public void Remove(Movie t)
+		{
+			_movieDal.Delete(t);
 
 
-        public MovieManager(IMovieDal movieDal)
-        {
-            _movieDal = movieDal;
-        }
-
-        public void Add(Movie movie)
-        {
-            _movieDal.Insert(movie);
-        }
-
-        public List<Movie> GetAllList()
-        {
-            return _movieDal.GetListAll();
-        }
-
-        public Movie GetById(int id)
-        {
-            return _movieDal.GetByID(id);
-        }
-
-        public void Remove(Movie movie)
-        {
-            _movieDal.Delete(movie);
-        }
-
-        public void Update(Movie movie)
-        {
-            _movieDal.Update(movie);
-        }
-    }
+		}
+			public void Update(Movie t)
+		{
+			_movieDal.Update(t);		}
+	}
 }

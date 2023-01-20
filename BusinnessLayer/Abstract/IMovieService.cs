@@ -8,12 +8,8 @@ using System.Threading.Tasks;
 
 namespace BusinnessLayer.Abstract
 {
-    public interface IMovieService
+    public interface IMovieService :IGenericService<Movie>
     {
-        void Add(Movie movie);
-        void Remove(Movie movie);
-        void Update(Movie movie);
-        List<Movie> GetAllList();
-        Movie GetById(int id);
+       
     }
 }

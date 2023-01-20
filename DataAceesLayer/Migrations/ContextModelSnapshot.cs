@@ -138,6 +138,9 @@ namespace DataAceesLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("MovieAgeDanger")
+                        .HasColumnType("int");
+
                     b.Property<int>("MovieKindId")
                         .HasColumnType("int");
 

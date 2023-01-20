@@ -27,8 +27,10 @@ namespace EntityLayer.Concrete
         public string TrailerLink { get; set; }
         public MovieKind MovieKind { get; set; }
         public List<CommentRated> CommentRated { get; set; }
+        public int? MovieAgeDanger { get; set; }
         [NotMapped]
         public List<MovieKind> MovieKinds { get; set; }
+        List<Movie> Movies { get; set; }
 
 
 

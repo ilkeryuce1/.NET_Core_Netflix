@@ -43,6 +43,11 @@
                 <span asp-validation-for="CoverPhotoLink" class="text-danger"></span>
             </div>
             <div class="form-group">
+                    <label asp-for="MovieAgeDanger" class="control-label"></label>
+                    <input asp-for="MovieAgeDanger" class="form-control"  type="number" maxlength="2"/>
+                <span asp-validation-for="MovieAgeDanger" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="TrailerLink" class="control-label"></label>
                 <input asp-for="TrailerLink" class="form-control" />
                 <span asp-validation-for="TrailerLink" class="text-danger"></span>

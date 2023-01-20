@@ -1,4 +1,5 @@
-﻿
+﻿@model EntityLayer.Concrete.Account
+
 @{
     Layout = null;
 }
@@ -20,14 +21,15 @@
 
         <div class="showcase-content">
             <div class="formm">
-                <form>
+                <form method="post">
                     <h1>Sign In</h1>
+                    <p style="color:red;"> @ViewBag.Message</p>
                     <div class="info">
-                        <input class="email" type="email" placeholder="Email or phone number"> <br>
-                        <input class="email" type="password" placeholder="Password">
+                        <input class="email" type="email" name="Email" placeholder="Email or phone number"> <br>
+                        <input class="email" type="password" name="Password" placeholder="Password">
                     </div>
                     <div class="btn">
-                        <button class="btn-primary" type="submit">Sign In</button>
+                        <button class="btn-primary" asp-route-id="@Model?.AccountId" type="submit">Sign In</button>
                     </div>
                     <div class="help">
                         <div>
