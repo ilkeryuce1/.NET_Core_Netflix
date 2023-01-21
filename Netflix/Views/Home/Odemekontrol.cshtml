@@ -1,16 +1,18 @@
-﻿@{
+﻿@model EntityLayer.Concrete.Account
+@{
     Layout = null;
 }
-@model EntityLayer.Concrete.Account
+
 <!DOCTYPE html>
 <html>
 <head>
     <link href="~/pay/pay.css" rel="stylesheet" />
 </head>
 <body>
-    <form method="post">
- 
-        <input type="hidden" asp-for="AccountId" />
+  
+
+        
+       
      
         
       
@@ -94,11 +96,13 @@
                 <span class="text">CVV</span><br>
                 <input type="text" id="entiredcvv" maxlength="3" onkeyup="getInputValueandText('entiredcvv','cardcvv')" onblur="borderRemove('cardcvv'); reverseback('cardFront','cardBack')" onfocus="reverse('cardFront','cardBack')">
             </div>
-        </div>
-        <div class="submit"><button type="submit" class="button submit">Submit</button></div>
+        </div>              <form asp-action="Odemekontrol">
 
+
+        <div class="submit"><button type="submit" class="button submit">Submit</button></div>
+          </form>
     </div>
-    </form>
+  
     <script src="~/pay/pay.js"></script>
 </body>
 </html>
