@@ -10,8 +10,9 @@ namespace Netflix.Controllers
 		MovieManager mm = new MovieManager(new EfMovieRepositories());
 		public IActionResult Index()
 		{
-			var values = mm.GetAllList();
-			return View(values);
+            var values = mm.GetAllList().OrderByDescending(x => x.MovieId); return View(values);
 		}
+
+	
 	}
 }
