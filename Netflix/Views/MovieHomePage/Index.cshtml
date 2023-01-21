@@ -4,11 +4,6 @@
     Layout = "~/Views/Shared/_LayoutMovie.cshtml";
 }
 
-<!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-<!-- dashboard/browse page block start | home page after login | -->
-<!-- hero section -->
 @{
     int i = 0;
 }
@@ -111,7 +106,7 @@
     <section id="mylist" class="container">
 
         <h4 class="mylist-heading">
-            Hollywood Movies / Action, Mystery
+            New release original netflix
         </h4>
         <div class="mylist-container d-flex flex-start flex-middle flex-no-wrap owl-carousel">
             @{
@@ -157,176 +152,22 @@
                     break;
                 }
             }
-
-
         </div>
-
     </section>
 
 
 
-    <!--new release -->
+    <!--Horror release -->
     <section id="continue-watching" class="container p-t-40">
         <h4 class="continue-watching-heading">
-            New release original netflix
+           Horror Movies
         </h4>
         <div class="continue-watching-container d-flex flex-start flex-middle flex-no-wrap owl-carousel">
 
-            <div class="video">
-                <video class="mylist-img p-r-10 p-t-10 video-item"
-                       poster="~/stylescomp/images/movies/horrible-bosses-middle-poster.webp">
-                    <source src="~/stylescomp/images/tv-show/videos/Never Have I Ever - Official Trailer - Netflix_2.mp4"
-                            type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-
-                <div class="video-description d-flex flex-end direction-column">
-                    <div class="play-button">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M6 4l15 8-15 8z" fill="black"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 class="heading f-w-8 text-shadow">
-                            Horrible Bosses
-                        </h4>
-                    </div>
-                    <div class="info d-flex flex-middle flex-no-wrap">
-                        <p class="rated text-shadow"><strong>18+</strong></p>
-                        <p class="season-count text-shadow">Movie</p>
-                    </div>
-                    <div class="genere d-flex flex-no-wrap text-shadow">
-                        <p>#Nudeity</p>
-                        <p>#sex</p>
-                        <p>#Comedy</p>
-                    </div>
-                </div>
-            </div>
+            @await Component.InvokeAsync("Horrors")
 
 
-            <div class="video">
-                <video class="mylist-img p-r-10 p-t-10 video-item"
-                       poster="~/stylescomp/images/movies/kabir-singh-poster.webp">
-                    <source src="~/stylescomp/images/tv-show/videos/Never Have I Ever - Official Trailer - Netflix_2.mp4"
-                            type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-
-                <div class="video-description d-flex flex-end direction-column">
-                    <div class="play-button">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M6 4l15 8-15 8z" fill="black"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 class="heading f-w-8 text-shadow">
-                            Kabir Singh
-                        </h4>
-                    </div>
-                    <div class="info d-flex flex-middle flex-no-wrap">
-                        <p class="rated text-shadow"><strong>18+</strong></p>
-                        <p class="season-count text-shadow">Movie</p>
-                    </div>
-                    <div class="genere d-flex flex-no-wrap text-shadow">
-                        <p>#Nudeity</p>
-                        <p>#crime</p>
-                        <p>#Love</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video">
-                <video class="mylist-img p-r-10 p-t-10 video-item"
-                       poster="~/stylescomp/images/tv-show/poster/never-have-ever-short poster.jpg">
-                    <source src="~/stylescomp/images/tv-show/videos/Never Have I Ever - Official Trailer - Netflix_2.mp4"
-                            type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-
-                <div class="video-description d-flex flex-end direction-column">
-                    <div class="play-button">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M6 4l15 8-15 8z" fill="black"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 class="heading f-w-8 text-shadow">
-                            Never Have I Ever
-                        </h4>
-                    </div>
-                    <div class="info d-flex flex-middle flex-no-wrap">
-                        <p class="rated text-shadow"><strong>18+</strong></p>
-                        <p class="season-count text-shadow"> 1 Season</p>
-                    </div>
-                    <div class="genere d-flex flex-no-wrap text-shadow">
-                        <p>#Nudeity</p>
-                        <p>#Romance</p>
-                        <p>#Love</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video">
-                <video class="mylist-img p-r-10 p-t-10 video-item"
-                       poster="~/stylescomp/images/movies/we-are-the-milers-poster-little.webp">
-                    <source src="~/stylescomp/images/movies/videos/We're the Millers - Official Trailer [HD].mp4"
-                            type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-
-                <div class="video-description d-flex flex-end direction-column">
-                    <div class="play-button">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M6 4l15 8-15 8z" fill="black"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 class="heading f-w-8 text-shadow">
-                            WE'RE THE MILERS
-                        </h4>
-                    </div>
-                    <div class="info d-flex flex-middle flex-no-wrap">
-                        <p class="rated text-shadow"><strong>18+</strong></p>
-                        <p class="season-count text-shadow">Movie</p>
-                    </div>
-                    <div class="genere d-flex flex-no-wrap text-shadow">
-                        <p>#Nudeity</p>
-                        <p>#fiction</p>
-                        <p>#Comedy</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video">
-                <video class="mylist-img p-r-10 p-t-10 video-item"
-                       poster="~/stylescomp/images/movies/extraction-poster.jpg">
-                    <source src="~/stylescomp/images/movies/videos/Murder Mystery - Trailer - Netflix.mp4"
-                            type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-
-                <div class="video-description d-flex flex-end direction-column">
-                    <div class="play-button">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M6 4l15 8-15 8z" fill="black"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 class="heading f-w-8 text-shadow">
-                            Extraction
-                        </h4>
-                    </div>
-                    <div class="info d-flex flex-middle flex-no-wrap">
-                        <p class="rated text-shadow"><strong>18+</strong></p>
-                        <p class="season-count text-shadow">Movie</p>
-                    </div>
-                    <div class="genere d-flex flex-no-wrap text-shadow">
-                        <p>#Adrenalin</p>
-                        <p>#Wild</p>
-                        <p>#Action</p>
-                    </div>
-                </div>
-            </div>
+            
 
         </div>
     </section>

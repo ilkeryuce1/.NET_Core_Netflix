@@ -1,5 +1,6 @@
 ﻿using BusinnessLayer.Concrete;
 using DataAceesLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,8 @@ namespace Netflix.Controllers
             var values = mm.GetAllList().OrderByDescending(x => x.MovieId); return View(values);
 		}
 
-	
-	}
+       
+
+
+    }
 }
