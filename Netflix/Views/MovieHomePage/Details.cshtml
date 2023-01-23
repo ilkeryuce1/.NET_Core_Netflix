@@ -1,0 +1,149 @@
+﻿@model EntityLayer.Concrete.Movie
+
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutMovie.cshtml";
+
+}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Netflix world – Watch TV Shows Online, Watch Movies Online</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"
+          integrity="sha256-t2kyTgkh+fZJYRET5l9Sjrrl4UDain5jxdbqe8ejO8A=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="~/stylescomp/assets/css/global.css">
+    <link rel="stylesheet" href="~/stylescomp//assets/css/browse.css">
+    <link rel="stylesheet" href="~/stylescomp//assets/css/single.css">
+
+    <!--html 5 video player-->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
+    <script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
+
+</head>
+
+<body>
+    <main id="mainContainer" class="p-b-40">
+
+
+
+
+
+
+        <!-- hero section video-->
+        <div class="videocontainer">
+            <video controls crossorigin playsinline
+                   poster="            @Html.DisplayTextFor(model => model.CoverPhotoLink)
+" id="player">
+                <!-- Video files -->
+                <source src="            @Html.DisplayTextFor(model => model.TrailerLink)
+" type="video/mp4">
+
+                <!-- Caption files -->
+                <track kind="captions" label="English" srclang="en"
+                       src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt" default>
+            </video>
+        </div>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
+                const player = new Plyr('#player');
+
+                // Expose
+                window.player = player;
+
+                // Bind event listener
+                function on(selector, type, callback) {
+                    document.querySelector(selector).addEventListener(type, callback, false);
+                }
+            });
+        </script>
+
+
+
+
+        <section class="movieinformation container">
+
+            <div class="movielogo">
+<h3>@Html.DisplayTextFor(x=>x.MovieName)</h3>            </div>
+            <div class="movierelease">
+                <span class="year">
+                    @Html.DisplayTextFor(model => model.MovieYear.Year)
+
+                </span>
+                <span class="rating">
+                    10
+                </span>
+                <span class="timeduration">
+                    **
+                </span>
+            </div>
+            <div class="description">
+                @Html.DisplayTextFor(model => model.Description)
+            </div>
+            <div class="castinformation">
+                <p><span class="name">Director:</span> Netflix</p>
+                <p><span class="name">Screenplay:</span> Netflix</p>
+                <p>
+                    <span class="name">Producers:</span> Netflix
+                </p>
+                <p>
+                    <span class="name">Awards:</span> People's Choice Award for Favorite @Html.DisplayTextFor(model => model.MovieKind.MovieKindName)
+                    Movie
+                </p>
+            </div>
+
+            <div class="actions d-flex flex-start flex-middle">
+                <a href="#" class="link-item">
+                    <i class="fa fa-plus"></i></br>
+                    My List
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fa fa-thumbs-up"></i></br>
+                    Like
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fa fa-share"></i></br>
+                    Share
+                </a>
+                <a href="#" class="link-item">
+                    <i class="fa fa-download"></i></br>
+                    Download
+                </a>
+            </div>
+
+        </section>
+
+
+        <!--Animation Movies-->
+        <section id="romantic" class="container p-t-40">
+            <h4 class="romantic-heading">
+                Animation Movies
+            </h4>
+            <div class="romantic-container d-flex flex-start flex-middle flex-no-wrap owl-carousel">
+                @await Component.InvokeAsync("Animation")
+
+            </div>
+        </section>
+
+    </main>
+
+
+
+</body>
+
+</html>

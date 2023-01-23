@@ -9,9 +9,13 @@ using DataAceesLayer.Concrete;
 using EntityLayer.Concrete;
 using BusinnessLayer.Concrete;
 using DataAceesLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Netflix.Controllers
 {
+    [AllowAnonymous]
+
+
     public class Movies1Controller : Controller
     {
     Context c= new Context();
@@ -30,6 +34,11 @@ namespace Netflix.Controllers
         // GET: Movies1/Details/5
         public async Task<IActionResult> Details(int id)
         {
+            if (TempData["v"]!="3")
+            {
+                return NotFound();
+
+            }
             if (id == null )
             {
                 return NotFound();
@@ -47,6 +56,11 @@ namespace Netflix.Controllers
         //GET: Movies1/Create
         public IActionResult Create()
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index","Home");
+
+            }
             ViewData["MovieKindId"] = new SelectList(c.Tbl_MovieKinds, "MovieKindId", "MovieKindName");
             return View();
         }
@@ -59,8 +73,13 @@ namespace Netflix.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("MovieName,Description,MovieYear,Episodes,MovieKindId,CoverPhotoLink,TrailerLink")] Movie movie)
         {
-        
-                mm.Add(movie);
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
+
+            mm.Add(movie);
                 ViewData["Ekle"] = "Film Başarıyla Eklendi";
                 return RedirectToAction(nameof(Index));
             
@@ -71,6 +90,11 @@ namespace Netflix.Controllers
         //GET: Movies1/Edit/5
          public async Task<IActionResult> Edit(int? id)
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
             if (id == null || c.Tbl_Movies == null)
             {
                 return NotFound();
@@ -92,6 +116,11 @@ namespace Netflix.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, [Bind("MovieId,MovieName,Description,MovieYear,Episodes,MovieKindId,CoverPhotoLink,TrailerLink")] Movie movie)
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
             if (id != movie.MovieId)
             {
                 return NotFound();
@@ -106,6 +135,11 @@ namespace Netflix.Controllers
         //GET: Movies1/Delete/5
          public async Task<IActionResult> Delete(int? id)
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
             if (id == null || c.Tbl_Movies == null)
             {
                 return NotFound();
@@ -127,6 +161,11 @@ namespace Netflix.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
             if (c.Tbl_Movies == null)
             {
                 return Problem("Entity set 'Context.Tbl_Movies'  is null.");

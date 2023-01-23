@@ -2,6 +2,7 @@
 using DataAceesLayer.Concrete;
 using DataAceesLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Netflix.Models;
@@ -9,8 +10,11 @@ using System.Diagnostics;
 
 namespace Netflix.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
+        int ids = 0;
+
         private readonly ILogger<HomeController> _logger;
         Context c= new Context();
         
@@ -30,7 +34,7 @@ namespace Netflix.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Signin(Account t,int? id)
+        public async Task<IActionResult> Signin(Account t )
         {
            
           
@@ -41,19 +45,34 @@ namespace Netflix.Controllers
                 var parola = c.Tbl_Accounts.FirstOrDefault(x => x.Email == t.Email && t.Password == x.Password);
                 if (parola!=null)
                 {
+                 
+                    var Id=c.Tbl_Accounts.Where(x=>x.Email==t.Email).Select(a=>a.AccountId).FirstOrDefault();
+                    ids = Id;
+                    TempData["v"] = Id;
+                    
 
 
 
-
-                    var odemekontrol = c.Tbl_Accounts.FirstOrDefault(a => a.Isverified == true); 
-                    if (odemekontrol == null)
+                    var odemekontrol = c.Tbl_Accounts.Where(a=>a.AccountId==Id).FirstOrDefault(a => a.Isverified == true); 
+                    if (odemekontrol == null )
                     {
                         return RedirectToAction("Odemekontrol");
                         
                     }
                     else
                     {
-                        return RedirectToAction("Index", "MovieHomePage");
+                        var data1 = c.Tbl_Accounts.FirstOrDefault(x => x.Email == t.Email&&x.AccountId==3);
+
+                        if (data1==null)
+                        {
+                            return RedirectToAction("Index", "MovieHomePage");
+
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index", "Movies1");
+
+                        }
                     }
                 }
                 else
@@ -71,43 +90,48 @@ namespace Netflix.Controllers
 
 		}
         [HttpGet]
-        public async Task<IActionResult> Odemekontrol(int? id)
+        public IActionResult Odemekontrol(int? id)
         {
-            //if (id == null)
-            //{
-            //    return View("Index");
+            id = int.Parse(TempData["v"].ToString());
+            if (TempData["v"] == null)
+            {
+                return RedirectToAction("Index", "Home");
 
-            //}
-          
-           
-
-
+            }
 
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Odemekontrol(Account t,  int? id)
+        public IActionResult Odemekontrol(Account t,  int? id)
         {
-            t.Name = t.Name;
-            t.SurName = t.SurName;
-            t.Password = t.Password;
-            t.BirthDate=t.BirthDate;
-            t.Email = t.Email;
-            t.PhoneNumber = t.PhoneNumber;
-            t.AccountKindId = t.AccountKindId;
+            if (id == null)
+            {
+                return RedirectToAction("Index", "Home");
+         
+
+            }
+
+            id = ids;
             using (var context = new Context())
             {
-                var record = context.Tbl_Accounts.SingleOrDefault(r => r.AccountId == id);
-                if (record != null)
+                // İlgili satırı veri tabanından okuyun
+                var item = context.Tbl_Accounts.FirstOrDefault(i => i.AccountId == id);
+
+                // Eğer satır bulunduysa, sütunu değiştirin
+                if (item != null)
                 {
-                    record.Isverified = true;
-                    context.SaveChanges();
+                    item.Isverified = true;
+                    am.Update(item);
+                 
                     return RedirectToAction("Index", "MovieHomePage");
+
                 }
             }
 
+           
 
-            ViewBag.odeme = "ıd alınamadı ";
+
+            ViewBag.odeme = "başarısız";
             return View();
 
         }

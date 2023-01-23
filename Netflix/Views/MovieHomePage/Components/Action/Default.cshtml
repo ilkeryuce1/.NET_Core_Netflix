@@ -1,0 +1,42 @@
+﻿@using Netflix.Models;
+@model IEnumerable<EntityLayer.Concrete.Movie>
+
+
+@foreach (var item in Model)
+{
+    <a asp-action="Details" asp-route-id="@item.MovieId">
+
+   
+    <div class="foto-zoom">
+        <div class="video">
+            <video class="mylist-img p-r-10 p-t-10 video-item"
+               poster="@item.CoverPhotoLink">
+                <source src="@item.TrailerLink"
+                    type="video/mp4">
+                @item.Description
+            </video>
+
+            <div class="video-description d-flex flex-end direction-column">
+                <div class="play-button">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 4l15 8-15 8z" fill="black"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="heading f-w-8 text-shadow">
+                        @item.MovieName
+                    </h4>
+                </div>
+                <div class="info d-flex flex-middle flex-no-wrap">
+                    <p class="rated text-shadow"><strong>@item.MovieAgeDanger+</strong></p>
+                    <p class="season-count text-shadow"></p>
+                </div>
+                <div class="genere d-flex flex-no-wrap text-shadow">
+
+                    <p>@item.MovieYear.Year</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </a>
+}   

@@ -10,9 +10,12 @@ using EntityLayer.Concrete;
 using BusinnessLayer.Concrete;
 using DataAceesLayer.EntityFramework;
 using DataAceesLayer.Abstract;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Netflix.Controllers
 {
+    [AllowAnonymous]
+
     public class AccountKindsController : Controller
     {
         Context _context = new Context();
@@ -29,6 +32,11 @@ namespace Netflix.Controllers
         // GET: AccountKinds/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
             if (id == null || _context.Tbl_AccountKinds == null)
             {
                 return NotFound();
@@ -47,6 +55,11 @@ namespace Netflix.Controllers
         // GET: AccountKinds/Create
         public IActionResult Create()
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
             return View();
         }
 
@@ -57,6 +70,11 @@ namespace Netflix.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AccounKindtId,AccounName")] AccountKind accountKind)
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
             akm.Add(accountKind);
             
                 return RedirectToAction(nameof(Index));
@@ -66,6 +84,11 @@ namespace Netflix.Controllers
         // GET: AccountKinds/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
             if (id == null || _context.Tbl_AccountKinds == null)
             {
                 return NotFound();
@@ -86,6 +109,11 @@ namespace Netflix.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("AccounKindtId,AccounName")] AccountKind accountKind)
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
             if (id != accountKind.AccounKindtId)
             {
                 return NotFound();
@@ -117,6 +145,11 @@ namespace Netflix.Controllers
         // GET: AccountKinds/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
             if (id == null || _context.Tbl_AccountKinds == null)
             {
                 return NotFound();
@@ -137,6 +170,11 @@ namespace Netflix.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            if (TempData["v"] != "3")
+            {
+                return RedirectToAction("Index", "Home");
+
+            }
             if (_context.Tbl_AccountKinds == null)
             {
                 return Problem("Entity set 'Context.Tbl_AccountKinds'  is null.");

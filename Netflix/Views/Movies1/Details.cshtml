@@ -1,62 +1,118 @@
 ﻿@model EntityLayer.Concrete.Movie
 
+
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutMovie.cshtml";
+
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>Movie</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MovieName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MovieName)
-        </dd>
-        <dt class = "col-sm-2">
+<div class="">
+    <section id="browse-dashboard" class=" d-flex direction-column flex-start middle-align">
+        <div>
+            <!--trailer video-->
+            <video class="hero-background-image" id="hero-video"
+                   poster="@Html.DisplayNameFor(model => model.CoverPhotoLink)">
+                <source src="@Html.DisplayNameFor(model => model.TrailerLink)"
+                        type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!--left shadow-->
+            <div class="shadow-layer"></div>
+        </div>
+
+        <div class="container text-container" style="z-index: 5;">
+            <div class="contentlogo">
+                <br />
+                <br />
+                <br />
+                <img class="show-logo" />
+                <h3>@Html.DisplayNameFor(model => model.MovieName)</h3>
+            </div>
+
+            </section>
+
+
+
+
+
+
+    <!-- hero section video-->
+   @* <div class="videocontainer">
+        <video controls crossorigin playsinline
+               poster="@Html.DisplayNameFor(model => model.CoverPhotoLink)" id="player">
+            <!-- Video files -->
+            <source src="@Html.DisplayNameFor(model => model.TrailerLink)" type="video/mp4">
+
+            <!-- Caption files -->
+            <track kind="captions" label="English" srclang="en"
+                   src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt" default>
+        </video>
+    </div>*@
+    
+
+
+
+
+
+    <section class="movieinformation container">
+
+        <div class="movielogo">
+            <img src=" @Html.DisplayNameFor(model => model.CoverPhotoLink)" alt="">
+        </div>
+        <div class="movierelease">
+            <span class="year">
+                @Html.DisplayNameFor(model => model.MovieYear.Year)
+
+            </span>
+            <span class="rating">
+                10
+            </span>
+            <span class="timeduration">
+                **
+            </span>
+        </div>
+        <div class="description">
             @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MovieYear)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MovieYear)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Episodes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Episodes)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CoverPhotoLink)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CoverPhotoLink)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TrailerLink)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TrailerLink)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MovieKind)
-        </dt>
-        <dd class = "col-sm-10">
-           
+        </div>
+        <div class="castinformation">
+            <p><span class="name">Director:</span> Netflix</p>
+            <p><span class="name">Screenplay:</span> Netflix</p>
+            <p>
+                <span class="name">Producers:</span> Netflix
+            </p>
+            <p>
+                <span class="name">Awards:</span> People's Choice Award for Favorite             @Html.DisplayNameFor(model => model.MovieKind.MovieKindName)
+                Movie
+            </p>
+        </div>
 
-            @Html.DisplayFor(model => model.MovieKindId)
-        </dd>
-    </dl>
+        <div class="actions d-flex flex-start flex-middle">
+            <a href="#" class="link-item">
+                <i class="fa fa-plus"></i></br>
+                My List
+            </a>
+            <a href="#" class="link-item">
+                <i class="fa fa-thumbs-up"></i></br>
+                Like
+            </a>
+            <a href="#" class="link-item">
+                <i class="fa fa-share"></i></br>
+                Share
+            </a>
+            <a href="#" class="link-item">
+                <i class="fa fa-download"></i></br>
+                Download
+            </a>
+        </div>
+
+    </section>
+
+
+   
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.MovieId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
+

@@ -60,6 +60,8 @@
                     </p>
                 </div>
                 <div class="buttons-container m-t-20">
+                                    <a  asp-action="Details" asp-route-id="@item.MovieId" >
+
                     <button class="play-button">
                         <span>
                             <svg viewBox="0 0 24 24">
@@ -67,7 +69,7 @@
                             </svg>
                         </span> <a href="single.html">Play</a>
                     </button>
-
+                    </a>
                     <button class="more-info-button m-t-20">
                         <span>
                             <svg viewBox="0 0 24 24">
@@ -115,6 +117,8 @@
 
             @foreach (var item in Model)
             {
+                <a  asp-action="Details" asp-route-id="@item.MovieId" >
+
                 <div class="foto-zoom">
                     <div class="video">
                         <video class="mylist-img p-r-10 p-t-10 video-item"
@@ -146,6 +150,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
                 a++;
                 if (a == 10)
                 {
@@ -172,48 +177,24 @@
         </div>
     </section>
 
-    <!--Romantic Movies-->
+    <!--Animation Movies-->
     <section id="romantic" class="container p-t-40">
         <h4 class="romantic-heading">
-            Romantic Movies
+            Animation Movies
         </h4>
         <div class="romantic-container d-flex flex-start flex-middle flex-no-wrap owl-carousel">
-            <a href="#">
-                <img src="~/stylescomp/images/movies/horrible-bosses-middle-poster.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/kabir-singh-poster.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/extraction-poster.jpg" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/tv-show/poster/never-have-ever-short poster.jpg" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/we-are-the-milers-poster-little.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-
-            <a href="#">
-                <img src="~/stylescomp/images/movies/we-are-the-milers-poster-little.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
+            @await Component.InvokeAsync("Animation")
 
         </div>
     </section>
 
     <!--big poster screen left poster right content-->
     <section class="big-section d-flex flex-start container">
-        <img src="~/stylescomp/images/movies/we are the milers big poster.jpg" alt="">
+        <img src="https://occ-0-7335-3467.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABU0mi6aPR8UMyIvzScWQKmhvT2V0mK29NE0nK8-i36tGa7Htc3e57tm2dFtgpI63SZBBsO8BuzDzaqF9PQIKjT6SvP-mu-MAQ7ZC.jpg?r=a57" alt="">
 
         <div class="right-side">
             <div class="contentlogo">
-                <img src="~/stylescomp/images/movies/milers logo.webp" alt="content logo"
+                <img src="https://occ-0-7335-3467.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABQ_4Ba_l-6djuMOnQyhrflhInDUP0MRlPAhN8toGfwfYaKCXHuulTRmLMQgtiI3K6-H2difu6MsfbGsd145DX_2lsSI8RU5KPRI1ij6FJmHh.png?r=024" alt="content logo"
                      class="show-logo" />
             </div>
 
@@ -235,14 +216,12 @@
                              points="8.4639503 12.8342327 6.65837455 13.2666206 6.65837455 7.77862061 4.65323515 7.77862061 4.65323515 6.22012364 10.4690897 6.22012364 10.4690897 7.77862061 8.4639503 7.77862061">
                     </polygon>
                 </svg>
-                <span class="p-l-10 f-s-24 f-w-8">#1 in India Today</span>
+                <span class="p-l-10 f-s-24 f-w-8">#1  Today</span>
             </div>
 
             <div class="synopsis m-t-20" style="max-width: 500px;">
                 <p class="f-s-20">
-                    Sex. It's on teenage minds. It's messing with their heads. And this kid is the least
-                    likely
-                    sexpert in the schoolyard.
+                    Zombi kıyametinin ardından hayatta kalanlar, birlikte verdikleri ölüm kalım mücadelesinde insanlığa karşı duydukları umuda tutunur.
                 </p>
             </div>
             <div class="buttons-container m-t-20">
@@ -266,106 +245,17 @@
         </div>
     </section>
 
-
-    <!--Get In On the Action-->
+    <!--Animation Movies-->
     <section id="romantic" class="container p-t-40">
         <h4 class="romantic-heading">
-            Get In On the Action
+            Action Movies
         </h4>
         <div class="romantic-container d-flex flex-start flex-middle flex-no-wrap owl-carousel">
-            <a href="#">
-                <img src="~/stylescomp/images/movies/horrible-bosses-middle-poster.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/kabir-singh-poster.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/extraction-poster.jpg" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/tv-show/poster/never-have-ever-short poster.jpg" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/we-are-the-milers-poster-little.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-
-            <a href="#">
-                <img src="~/stylescomp/images/movies/we-are-the-milers-poster-little.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
+            @await Component.InvokeAsync("Action")
 
         </div>
     </section>
-
-    <!--Bingeworthy TV Shows-->
-    <section id="romantic" class="container p-t-40">
-        <h4 class="romantic-heading">
-            Bingeworthy TV Shows
-        </h4>
-        <div class="romantic-container d-flex flex-start flex-middle flex-no-wrap owl-carousel">
-            <a href="#">
-                <img src="~/stylescomp/images/movies/horrible-bosses-middle-poster.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/kabir-singh-poster.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/extraction-poster.jpg" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/tv-show/poster/never-have-ever-short poster.jpg" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/we-are-the-milers-poster-little.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-
-
-
-        </div>
-    </section>
-
-
-    <!--Hollywood Action movies-->
-    <section id="romantic" class="container p-t-40">
-        <h4 class="romantic-heading">
-            Hollywood Action Movies
-        </h4>
-        <div class="romantic-container d-flex flex-start flex-middle flex-no-wrap owl-carousel">
-            <a href="#">
-                <img src="~/stylescomp/images/movies/horrible-bosses-middle-poster.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/kabir-singh-poster.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/extraction-poster.jpg" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/tv-show/poster/never-have-ever-short poster.jpg" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-            <a href="#">
-                <img src="~/stylescomp/images/movies/we-are-the-milers-poster-little.webp" alt=""
-                     class="mylist-img p-r-10 p-t-10 image-size item">
-            </a>
-
-
-
-        </div>
-    </section>
+  
 
 </div>
      

@@ -4,7 +4,8 @@
 
 @foreach (var item in Model)
 {
-        <a href="~/Movies1/Details/@item.MovieId">
+    <a asp-action="Details" asp-route-id="@item.MovieId">
+
 
         <div class="foto-zoom">
             <div class="video">
